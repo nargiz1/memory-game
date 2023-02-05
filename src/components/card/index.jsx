@@ -21,7 +21,8 @@ function Index({ name, image, isWin, needTimer, setCurrent, second, setSecond })
     <div
       onClick={() => handleOpen()}
       name={name}
-      style={{
+      style={
+        {
         backgroundColor: "white",
         padding: "15px",
         width: "100%",
@@ -30,7 +31,9 @@ function Index({ name, image, isWin, needTimer, setCurrent, second, setSecond })
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-      }}
+      }
+      
+    }
     >
       {
         (open || isWin) && (

@@ -4,7 +4,7 @@ import Container from "@mui/material/Container";
 import Card from "../../components/card";
 import Grid from "@mui/material/Grid";
 
-import { final } from "../../elements";
+import { final } from "../../utils/elements";
 
 function Index() {
 
@@ -27,10 +27,13 @@ function Index() {
             setWincases([])
           }
         }
+        setCurrent(false)
       } else {
-        setSecond({elem, index})
+        if(elem.name != current.elem.name){
+          setSecond({elem, index})
+        }
       }
-      setCurrent(false)
+      
     }
   }
 
@@ -44,7 +47,7 @@ function Index() {
         <Grid container spacing={5} style={{ width: "100%" }}>
           {
             final.map((elem, index) => (
-              <Grid key={index} item lg={2} xs={6} md={4} onClick={() => handleClick(elem, index)}>
+              <Grid key={index} item lg={2} xs={6} md={4} style={!second ? {cursor: 'pointer'} : {}} onClick={() => handleClick(elem, index)}>
                 <Card
                   name={elem.name}
                   image={elem.image}
